@@ -161,7 +161,7 @@ def run(inpu,provider="gemini"):
         else:
             raise ValueError("Embedding provider must be 'openai' or 'huggingface'")
 
-    embedding_function = get_embedding_function("huggingface", openai_api_key)
+    embedding_function = get_embedding_function("openai", openai_api_key)
 
     # Create a vector store (ChromaDB) from the document chunks using the embedding function.
     # The Chroma database will be used to retrieve the most relevant documents based on the query.
@@ -173,9 +173,9 @@ def run(inpu,provider="gemini"):
 
     # Define a prompt template that instructs the chatbot on how to answer customer queries.
     # The template includes context information and instructs the bot to use only provided data.
-    template = """You are a clothing consultant chatbot.
+    template = """You are a medical consultant chatbot.
 
-    Answer the customer's questions. When relevant questions come, use the provided documents. Please answer to their specific question. If you are unsure, say "I don't know, please call our customer support". Use engaging, courteous, and professional language similar to a customer representative.
+    Answer the customer's/patient  questions. When relevant questions come, use the provided documents. Please answer to their specific question. If you are unsure, say "I don't know, please call our customer support". Use engaging, courteous, and professional language similar to a customer representative.
     Keep your answers concise.
 
     {context}
@@ -203,6 +203,6 @@ def run(inpu,provider="gemini"):
 
 
 if __name__ == "__main__":
-    print(run("What is the return policy?","gemini"))
+    print(run("What are the early symptoms of diabetes? ","openai"))
 
 
