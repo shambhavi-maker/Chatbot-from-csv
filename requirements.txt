@@ -1,0 +1,14 @@
+transformers 
+accelerate 
+langchain 
+openai
+chromadb
+langchain-community
+tiktoken
+python-dotenv
+langchain_ollama
+streamlit
+streamlit_chat
+langchain-google-genai
+langchain_openai
+google-generativeai
